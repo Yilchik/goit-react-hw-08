@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
+
 const AppBar = () => {
+  const isLoggedIn = useSelector(selectLoggedIn);
   return (
-    <div>
-      <Navigation />;
-      <UserMenu />;
-      <AuthNav />;
+    <div className="flex jc-sb">
+      <Navigation />
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </div>
   );
 };
