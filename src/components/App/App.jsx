@@ -4,12 +4,10 @@ import HomePage from "../../pages/HomePage/HomePage";
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import ContactsPage from "../../pages/ContactsPage/ContactsPage";
-import AppBar from "../AppBar/AppBar";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 const App = () => (
   <Layout>
-    <AppBar />
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegistrationPage />} />
