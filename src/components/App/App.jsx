@@ -1,29 +1,30 @@
-import ContactList from "../ContactList/ContactList";
-import SearchBox from "../SearchBox/SearchBox";
-import css from "./App.module.css";
-import ContactForm from "../ContactForm/ContactForm";
-import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps";
-import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import RegistrationPage from "./pages/RegistrationPage";
+import LoginPage from "./pages/LoginPage";
+import ContactsPage from "./pages/ContactsPage";
+import PrivateRoute from "./components/PrivateRoute";
+import RestrictedRoute from "./components/RestrictedRoute";
 
-const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  return (
-    <div className={css.container}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <hr className={css.line}></hr>
-      <SearchBox />
-      <hr className={css.line}></hr>
-      <h2>Contacts</h2>
-      <ContactList />
-    </div>
-  );
-};
+const App = () => (
+  <Layout>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/register"
+        element={<RestrictedRoute component={RegistrationPage} />}
+      />
+      <Route
+        path="/login"
+        element={<RestrictedRoute component={LoginPage} />}
+      />
+      <Route
+        path="/contacts"
+        element={<PrivateRoute component={ContactsPage} />}
+      />
+    </Routes>
+  </Layout>
+);
 
 export default App;
