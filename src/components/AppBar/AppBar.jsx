@@ -2,8 +2,8 @@ const AppBar = () => {
   return (
     <div>
       <Navigation />;
-      <UserInfo />;
-      <Authorization />;
+      <UserMenu />;
+      <AuthNav />;
     </div>
   );
 };
