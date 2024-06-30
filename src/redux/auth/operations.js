@@ -3,7 +3,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
-export const register = createAsyncThunk(
+export const registerOperation = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
@@ -15,7 +15,7 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk(
+export const loginOperation = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {

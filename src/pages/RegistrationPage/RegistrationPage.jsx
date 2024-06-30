@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import RegisterForm from "../components/RegisterForm/RegisterForm";
-import { registerOperation } from "../store/auth/operations";
+import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import { registerOperation } from "../../redux/auth/operations";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const RegisterPage = () => {
     <div>
       <h2>Register</h2>
       <br />
-      <RegisterForm submit={register} />
+      <RegistrationForm submit={register} />
     </div>
   );
 };
